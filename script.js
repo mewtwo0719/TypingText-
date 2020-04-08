@@ -7,20 +7,21 @@ title.innerHTML = " ";
 text.innerHTML = " ";
 
 var i = 0;
-setInterval(function () {
+var titleType = setInterval(function () {
 	if(i >= titleText.length){
-		clearInterval();
+		stop(titleType);
 	}else
 	title.innerHTML += titleText[i];
 	i++;
 }, 100);
 
-setTimeout(function(){
 
+
+setTimeout(function(){
 var j = 0;
-setInterval(function () {
-	if(i >= textText.length){
-		clearInterval();
+var textType = setInterval(function () {
+	if(j >= textText.length){
+		stop(textType);
 	}else
 	text.innerHTML += textText[j];
 	j++;
@@ -28,6 +29,9 @@ setInterval(function () {
 
 }, (100*titleText.length+2));
 
+function stop(type){
+	clearInterval(type);
+}
 
 
 
